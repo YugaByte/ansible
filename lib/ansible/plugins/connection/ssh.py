@@ -569,7 +569,7 @@ class Connection(ConnectionBase):
         # python interactive-mode but the modules are not compatible with the
         # interactive-mode ("unexpected indent" mainly because of empty lines)
 
-        if in_data:
+        if True or in_data:  # Fix by mbautin to try to avoid checksum issues
             cmd = self._build_command('ssh', self.host, cmd)
         else:
             cmd = self._build_command('ssh', '-tt', self.host, cmd)
